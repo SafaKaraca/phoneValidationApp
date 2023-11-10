@@ -5,10 +5,23 @@
  * @format
  */
 
-import React from 'react'
-import { View, Text, StyleSheet, TextInput, Pressable } from 'react-native'
+import React, {useState} from 'react'
+import { View, Text, StyleSheet, TextInput, Pressable, Alert } from 'react-native'
 
 const App = () => {
+
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const validatePhoneNumber = require("phone-validation-sf")
+
+  const handleLogin = () => {
+    const validationResult = validatePhoneNumber(phoneNumber)
+
+    if(validationResult.valid){
+      Alert.alert('Giriş Başarılı',validationResult.message)
+    }else{
+      Alert.alert('Hata',validationResult.message)
+    }
+  }
 
 return(
   <View style={styles.container}>
@@ -18,8 +31,11 @@ return(
       style={styles.input}
       placeholder= "05********* şeklinde giriniz"
       keyboardType= "numeric"
+      maxLength={11}
+      value={phoneNumber}
+      onChangeText={setPhoneNumber}
     />
-    <Pressable style={styles.button}>
+    <Pressable style={styles.button} onPress={handleLogin}>
       <Text style={styles.buttonText}>{'giriş'}</Text>
     </Pressable>
   </View>)
