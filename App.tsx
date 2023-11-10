@@ -7,6 +7,7 @@
 
 import React, {useState} from 'react'
 import { View, Text, StyleSheet, TextInput, Pressable, Alert } from 'react-native'
+import strings from './strings';
 
 const App = () => {
 
@@ -25,18 +26,18 @@ const App = () => {
 
 return(
   <View style={styles.container}>
-    <Text style={styles.title}>HOŞGELDİNİZ</Text>
-    <Text style={styles.desc}>Lütfen giriş yapmak için telefon numaranızı giriniz</Text>
+    <Text style={styles.title}>{strings.welcomeMessage}</Text>
+    <Text style={styles.desc}>{strings.descMessage}</Text>
     <TextInput
       style={styles.input}
-      placeholder= "05********* şeklinde giriniz"
+      placeholder= {strings.inputMessage}
       keyboardType= "numeric"
       maxLength={11}
       value={phoneNumber}
       onChangeText={setPhoneNumber}
     />
     <Pressable style={styles.button} onPress={handleLogin}>
-      <Text style={styles.buttonText}>{'giriş'}</Text>
+      <Text style={styles.buttonText}>{strings.buttonText}</Text>
     </Pressable>
   </View>)
 }
