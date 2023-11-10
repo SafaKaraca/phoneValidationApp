@@ -6,19 +6,22 @@
  */
 
 import React from 'react'
-import { View, Text, StyleSheet, TextInput, Button } from 'react-native'
+import { View, Text, StyleSheet, TextInput, Pressable } from 'react-native'
 
 const App = () => {
 
 return(
   <View style={styles.container}>
-    <Text style={styles.title}>Hoşgeldiniz</Text>
+    <Text style={styles.title}>HOŞGELDİNİZ</Text>
+    <Text style={styles.desc}>Lütfen giriş yapmak için telefon numaranızı giriniz</Text>
     <TextInput
       style={styles.input}
-      placeholder= "Numara"
+      placeholder= "05********* şeklinde giriniz"
       keyboardType= "numeric"
     />
-    <Button title='Sorgula'></Button>
+    <Pressable style={styles.button}>
+      <Text style={styles.buttonText}>{'giriş'}</Text>
+    </Pressable>
   </View>)
 }
 
@@ -27,17 +30,44 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    padding: 30,
   },
   title: {
-    fontSize: 24,
-    marginBottom: 20,
+    textAlign: 'center',
+    fontSize: 35,
+    fontWeight: 'bold',
+    color: '#4caf50',
+    marginBottom: 8,
+  },
+  desc: {
+    marginBottom: 8,
+    textAlign: 'center',
+    fontSize: 12,
+    color: '#555',
   },
   input: {
-    width: '80%',
     height: 40,
-    borderColor: 'gray',
+    width: 260,
+    borderColor: '#bdbdbd',
     borderWidth: 1,
-    marginBottom: 20,
+    borderRadius: 8,
+    paddingLeft: 10,
+    marginTop: 10,
+    marginBottom: 10,
+    color: '#333',
+  },
+  button: {
+    alignItems: 'center',
+    width: 260,
+    height: 40,
+    borderRadius: 7,
+    backgroundColor: '#4caf50',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 24,
+    fontWeight: 'bold',
+    alignItems: 'center',
   }
 })
 
