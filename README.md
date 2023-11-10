@@ -9,5 +9,5 @@ Bu proje React Native kullanılarak, girilen telefon numarasının validasyonunu
 
 ### Proje Görseli
 
-![Proje Görseli](screen.png)
+![Proje Görseli](images/screen.png)
 
